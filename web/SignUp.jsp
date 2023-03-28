@@ -1,24 +1,28 @@
 <%@page language="java" import="java.sql.*"%>
 <%@page import="java.io.*"%>
+<%@page import="java.util.UUID"%>
 <%
 try
 {
-ResultSet rs =null;
-Class.forName("oracle.jdbc.driver.OracleDriver");
-Connection con=    DriverManager.getConnection("jdbc:oracle:thin:@Crypto-pc:1521:XE","panda","piggy");
-Statement stmt=con.createStatement();
-String fname=request.getParameter("fname");
-String lname=request.getParameter("lname");
-String pswd=request.getParameter("pswd");
-String addr=request.getParameter("addr");
-String email=request.getParameter("email");
-String mobno=request.getParameter("mobno");
-stmt.executeUpdate("insert into register values('"+fname+"','"+lname+"','"+pswd+"','"+addr+"','"+email+"','"+mobno+"')");
-response.sendRedirect("login.html");
-con.close();
-stmt.close();
+    UUID uuid = UUID.randomUUID();
+    String randomUUIDString = uuid.toString();
+    ResultSet rs =null;
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/adminportal","root","root");
+    Statement stmt=con.createStatement();
+    String fname=request.getParameter("fname");
+    String lname=request.getParameter("lname");
+    String pswd=request.getParameter("pswd");
+    String user_type=request.getParameter("userType-radio");
+    String email=request.getParameter("email");
+    String mobno=request.getParameter("mobno");
+    stmt.executeUpdate("insert into users values('"+randomUUIDString+"','"+fname+"','"+lname+"','"+pswd+"','"+user_type+"','"+email+"','"+mobno+"')");
+//    response.sendRedirect("login.html");
+    System.out.println(stmt);
+    con.close();
+    stmt.close();
 }
 catch(ClassNotFoundException e)
 {
-out.println(e.getMessage());
+    out.println(e.getMessage());
 } %>
