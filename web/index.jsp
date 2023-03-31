@@ -15,21 +15,11 @@ try
     String pswd=request.getParameter("pswd");
     String user_type=request.getParameter("userType-radio");
     String email=request.getParameter("email");
-    String mobno=request.getParameter("mobno");
-    
-//    PreparedStatement stmtGET = con.prepareStatement("SELECT * FROM users WHERE email=?");
-//    stmtGET.setString(1, email);
-//    ResultSet res = stmtGET.executeQuery();
-//    String emailAddress = res.getString("email");
-    
-//    if(emailAddress.equals(email)){
-        stmt.executeUpdate("insert into users values('"+randomUUIDString+"','"+fname+"','"+lname+"','"+pswd+"','"+user_type+"','"+email+"','"+mobno+"')");
-        response.sendRedirect("Login/Login.html");
-//    }else{
-//        request.setAttribute("errorMessage", "The Email Address Already Exists. Please Try Again");
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("SignUp.jsp");
-//        dispatcher.forward(request, response);
-//    }      
+    String mobno=request.getParameter("mobno");    
+
+    stmt.executeUpdate("insert into users values('"+randomUUIDString+"','"+fname+"','"+lname+"','"+pswd+"','"+user_type+"','"+email+"','"+mobno+"')");
+    response.sendRedirect("Login/Login.html");
+     
     con.close();
     stmt.close();
 }
