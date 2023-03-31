@@ -17,7 +17,7 @@ try
     String email=request.getParameter("email");
     String mobno=request.getParameter("mobno");
     stmt.executeUpdate("insert into users values('"+randomUUIDString+"','"+fname+"','"+lname+"','"+pswd+"','"+user_type+"','"+email+"','"+mobno+"')");
-//    response.sendRedirect("login.html");
+    response.sendRedirect("Login.html");
     System.out.println(stmt);
     con.close();
     stmt.close();
