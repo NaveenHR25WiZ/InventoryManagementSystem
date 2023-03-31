@@ -116,6 +116,20 @@ hr {
   }
 }
 </style>
+   
+    <script type="text/javascript">
+        function setLocalStorage() {
+            document.getElementById('id01').style.display='none'
+            var value = document.getElementById("email").value;
+            localStorage.setItem("userEmail", value);
+        }
+        
+        function getLocalStorage() {
+            var value = localStorage.getItem("userEmail");
+            document.getElementById("outputField").innerHTML = value;
+        }
+    </script>
+    
 <body>
 
 <div>
@@ -135,7 +149,7 @@ hr {
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
       </label>
       <div class="clearfix">
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="setLocalStorage()" class="cancelbtn">Cancel</button>
         <button type="submit" class="signupbtn">Login</button>
       </div>
       
