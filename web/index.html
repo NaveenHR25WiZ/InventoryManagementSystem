@@ -4,6 +4,49 @@
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Add a border to the dropdown button on hover */
+.dropdown:hover .dropbtn {
+  border-bottom: 4px solid #4CAF50;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
@@ -142,8 +185,8 @@ hr {
       <input type="text" placeholder="Mobile Number" name="mobno" required>
       
       <label for="userType-radio"><b>User Type</b> <br/>
-        <input type="radio" name="userType-radio" style="margin-bottom:15px"> Admin
-        <input type="radio" name="userType-radio" style="margin-bottom:15px"> Customer
+        <input type="radio" name="userType-radio" style="margin-bottom:15px" value="ADMIN"> Admin
+        <input type="radio" name="userType-radio" style="margin-bottom:15px" value="CUSTOMER"> Customer
       </label>
       
       <br />
